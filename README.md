@@ -36,10 +36,10 @@ wails dev
 
 ## Usage
 
-Set Maximum Points: Enter maximum points and weights for grades.
-Add Grade: Add a grade by entering first name, last name, hv grade, and lv grade.
-View Grade Overview: The number of grades for each score will be automatically updated.
-Export: Choose a location and export the grades as a PDF.
+- Set Maximum Points: Enter maximum points and weights for grades.
+- Add Grade: Add a grade by entering first name, last name, hv grade, and lv grade.
+- View Grade Overview: The number of grades for each score will be automatically updated.
+- Export: Choose a location and export the grades as a PDF.
 
 ## License
 
