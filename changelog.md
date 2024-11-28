@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2024-11-28
+
+### 🐛 Bug Fixes
+
+- Fix error calculating grade
+
 ## [0.1.1] - 2024-11-28
 
 ### 🚜 Refactor
 
 - Seperate code into different files
+
+### 📚 Documentation
+
+- Update changelog.md
 
 ## [0.1.0] - 2024-11-25
 
