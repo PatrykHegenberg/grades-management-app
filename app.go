@@ -64,13 +64,26 @@ func (a *App) AddBewertung(vorname, nachname string, hvPunkte, lvPunkte float64)
 	if !a.validateName(vorname, nachname) {
 		return false
 	}
+	var (
+		gesamtNote    float64
+		gesamtProzent float64
+	)
+	lvNote := 0.0
+	lvProzent := 0.0
 
 	hvProzent := 100.00 / a.maxPunkte.HvMax * hvPunkte
-	lvProzent := 100.00 / a.maxPunkte.LvMax * lvPunkte
 	hvNote := setNote(hvProzent)
-	lvNote := setNote(lvProzent)
-	gesamtProzent := hvProzent*a.maxPunkte.HvGewichtung/100 + lvProzent*a.maxPunkte.LvGewichtung/100
-	gesamtNote := setNote(gesamtProzent)
+
+	if a.maxPunkte.LvMax != 0 {
+		lvProzent = 100.00 / a.maxPunkte.LvMax * lvPunkte
+		lvNote = setNote(lvProzent)
+
+		gesamtProzent = hvProzent*a.maxPunkte.HvGewichtung/100 + lvProzent*a.maxPunkte.LvGewichtung/100
+		gesamtNote = setNote(gesamtProzent)
+	} else {
+		gesamtProzent = hvProzent * a.maxPunkte.HvGewichtung / 100
+		gesamtNote = setNote(gesamtProzent)
+	}
 
 	bewertung := Bewertung{
 		ID:            len(a.bewertungen) + 1,
@@ -109,7 +122,6 @@ func (a *App) ExportBewertungen(path string) error {
 	pdf := gofpdf.New("P", "mm", "A4", "")
 	pdf.AddPage()
 
-	// Bewertungen exportieren
 	pdf.SetFont("Arial", "B", 16)
 	pdf.CellFormat(0, 10, "Bewertungen", "", 1, "C", false, 0, "")
 	pdf.Ln(5)
