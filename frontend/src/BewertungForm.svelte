@@ -26,6 +26,7 @@
     <input
       class="input input-bordered"
       type="number"
+      step="0.5"
       bind:value={hvPunkte}
       placeholder="HV-Punkte"
       required
@@ -33,6 +34,7 @@
     <input
       class="input input-bordered"
       type="number"
+      step="0.5"
       bind:value={lvPunkte}
       placeholder="LV-Punkte"
       required
@@ -42,4 +44,3 @@
     </button>
   </div>
 </form>
-

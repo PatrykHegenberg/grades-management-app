@@ -14,6 +14,7 @@
         id="hvMax"
         class="input input-bordered"
         type="number"
+        step="0.5"
         bind:value={hvMax}
         required
       />
@@ -34,6 +35,7 @@
         id="lvMax"
         class="input input-bordered"
         type="number"
+        step="0.5"
         bind:value={lvMax}
         required
       />
