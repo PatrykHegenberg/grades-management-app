@@ -1,12 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Noten</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@catppuccin/daisyui@1.2.1/dist/catppuccin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-<div id="app"></div>
-<script src="./src/main.js" type="module"></script>
+    <!-- <div data-theme="macchiato" id="app"></div> -->
+    <div id="app"></div>
+    <script>
+        // Set initial theme based on user preference or default
+        const initialTheme = localStorage.getItem("theme") || "macchiato";
+        document.getElementById("app").setAttribute("data-theme", initialTheme);
+    </script>
+    <script src="./src/main.js" type="module"></script>
 </body>
+
 </html>
