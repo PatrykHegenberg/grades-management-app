@@ -170,6 +170,26 @@ func (a *App) ExportBewertungen(path string) error {
 		pdf.Ln(-1)
 	}
 
+	var gesamtSumme float64
+	var anzahlGewertet int
+	var anzahlUnterSchnitt int
+	for _, bewertung := range a.bewertungen {
+		if bewertung.Gewertet {
+			gesamtSumme += float64(bewertung.GesamtNote)
+			anzahlGewertet++
+			if bewertung.GesamtNote >= 5 {
+				anzahlUnterSchnitt++
+			}
+		}
+	}
+
+	gesamtSchnitt := gesamtSumme / float64(anzahlGewertet)
+	prozentUnterSchnitt := float64(anzahlUnterSchnitt) / float64(anzahlGewertet) * 100
+
+	pdf.Ln(10)
+	pdf.SetFont("Arial", "B", 12)
+	pdf.CellFormat(0, 10, fmt.Sprintf("Gesamtnotenschnitt: %.2f", gesamtSchnitt), "", 1, "", false, 0, "")
+	pdf.CellFormat(0, 10, fmt.Sprintf("Prozentsatz der Bewertungen unter dem Schnitt (Note 5 oder 6): %.2f%%", prozentUnterSchnitt), "", 1, "", false, 0, "")
 	err := pdf.OutputFileAndClose(path)
 	if err != nil {
 		fmt.Println("Fehler beim Exportieren der Bewertungen:", err)
