@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2024-11-29
+
+### 🚀 Features
+
+- Add Notendurschnitt and Prozent unter Schnitt to exported pdf
+
 ## [0.1.3] - 2024-11-28
 
 ### 🐛 Bug Fixes
 
 - Fix error supporting half points
+
+### 📚 Documentation
+
+- Update changelog.md
 
 ## [0.1.2] - 2024-11-28
 
